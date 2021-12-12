@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [ "2.6", "2.7" ]
+        ruby: [ "2.6", "2.7", "3.0" ]
         sidekiq: [ "5.0", "5.1", "5.2", "6.0", "6.1" ]
 
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
         options: "--entrypoint redis-server"
 
     env:
-      GEMFILE: gemfiles/sidekiq_${{ matrix.sidekiq }}.gemfile
+      BUNDLE_GEMFILE: gemfiles/sidekiq_${{ matrix.sidekiq }}.gemfile
 
     steps:
       - uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.4"
+          ruby-version: "2.6"
 
       - name: bundle install
         run: bundle install --without development --jobs 4 --retry 3

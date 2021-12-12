@@ -203,7 +203,7 @@ workers by simply pushing a button on sidekiq web UI.
 
 By default we add *Enhanced Queues* tab with this functionality. But if you
 want you can override default *Queues* tab completely (notice that page will
-still be available using it's URL, but tab will be pointing enhanced version).
+still be available using its URL, but tab will be pointing enhanced version).
 To do so, just call `Sidekiq::Throttled::Web.enhance_queues_tab!` somewhere
 in your initializer/bootstrap code. If you are using rails, you might want to
 add it right into your `config/routes.rb` file:
@@ -235,6 +235,7 @@ versions:
 
 * Ruby 2.6.x
 * Ruby 2.7.x
+* Ruby 3.0.x
 
 If something doesn't work on one of these versions, it's a bug.
 
