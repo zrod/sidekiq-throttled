@@ -54,7 +54,7 @@ RSpec.describe Sidekiq::Throttled::Web, :sidekiq => :enabled do
     end
 
     describe "POST /enhanced-queues/:queue" do
-      before { env 'rack.session', csrf: csrf_token }
+      before { env "rack.session", :csrf => csrf_token }
 
       it "allows pausing the queue" do
         expect(pauser).to receive(:pause!).with("xxx")

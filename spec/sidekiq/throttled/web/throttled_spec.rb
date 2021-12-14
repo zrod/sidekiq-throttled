@@ -14,7 +14,7 @@ RSpec.describe Sidekiq::Throttled::Web do
   end
 
   before do
-    env 'rack.session', csrf: csrf_token
+    env "rack.session", :csrf => csrf_token
 
     Sidekiq::Throttled::Registry.add "foo",
       :concurrency => { :limit => 5 }
